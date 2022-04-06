@@ -1,0 +1,123 @@
+<body>
+    
+
+        <div class="d-none d-md-block">
+            <div class="cont">
+                <div class="form sign-in">
+                    <form>
+                        <h2 class="h2">Login Client</h2>
+                        <label for="">
+                            <span>Username</span>
+                            <input type="text" [(ngModel)]="username" name="username" value="Pointeur">
+                        </label>
+                        <label for="">
+                            <span>Password</span>
+                            <input type="password" [(ngModel)]="password" name="password" value="Pointeur">
+                        </label>
+                        <input type="submit" (click)="login()" class="button" value="Sign in">
+                    </form>
+                    <div class="social-media">
+                        <ul>
+                            
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="sub-cont">
+                    <div class="img">
+                        <div class="img-text m-up">
+                            <h2>Login</h2>
+                            <p>Identifiez-vous</p>
+                        </div>
+                        <div class="img-text m-in">
+                            <h2>Inscription</h2>
+                            <p>Veuillez-vous inscrire</p>
+                        </div>
+                        <div class="img-btn">
+                            <span class="m-up login">Inscription</span>
+                            <!-- <span class="m-in">Sign In</span> -->
+                        </div>
+                    </div>
+
+                    <div class="form sign-up">
+                        <form action="" method="post">
+                            <h2 class="h22">Inscrivez-Vous</h2>
+                            <label for="">
+                                <span>Nom</span>
+                                <input type="text" [(ngModel)]="client.nom" name="nom" id="">
+                            </label>
+                            <label for="">
+                                <span>Adresse</span>
+                                <input type="text" [(ngModel)]="client.addresse" name="addresse" id="">
+                            </label>
+                            <label for="">
+                                <span>Email</span>
+                                <input type="email" [(ngModel)]="client.email" name="email" id="">
+                            </label>
+                            <label for="">
+                                <span>Password</span>
+                                <input type="password" [(ngModel)]="client.password" name="password" id="">
+                            </label>
+                            <input type="submit" (click)="insertClient()" class="button" value="Save">
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        
+
+        <div class="d-block d-sm-none">
+            <div class="cont">
+                <div class="forms sign-in">
+                    <form action="" method="post">
+                        <h2 class="h2">Login Client</h2>
+                        <label for="">
+                            <span>Mail</span>
+                            <input type="text" name="email">
+                        </label>
+                        <label for="">
+                            <span>Mot de passe</span>
+                            <input type="password" name="password">
+                        </label>
+                        <input type="submit" class="button" value="Sign in">
+                    </form>
+                    <div class="social-media">
+                        <ul>
+                            
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="sub-cont">
+                    <div class="forms sign-up">
+                        <form action="" method="post">
+                            <h2 class="h22">Inscrivez-Vous</h2>
+                            <label for="">
+                                <span>Nom</span>
+                                <input type="text" name="" id="">
+                            </label>
+                            <label for="">
+                                <span>Adresse</span>
+                                <input type="text" name="" id="">
+                            </label>
+                            <label for="">
+                                <span>Mail</span>
+                                <input type="text" name="" id="">
+                            </label>
+                            <label for="">
+                                <span>Mot de passe</span>
+                                <input type="text" name="" id="">
+                            </label>
+                            <input type="submit" class="button" value="Save">
+                        </form>
+                    </div>
+                </div>
+                <div class="img-btns">
+                    <span class="m-up" id="inscription">Login</span>
+                </div>
+            </div>
+            
+        </div>
+</body>
