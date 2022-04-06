@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors');
+var ClientModel = require('./client')
 var connex = require('./connection');
 var commande = require('./commande');
 var client = require('./inscription_client');
@@ -9,6 +10,36 @@ const path = require('path');
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
+
+console.log('connecter : '+connex.conMongoose())
+
+app.post('/newClient', (req, res) => {
+    const client = new ClientModel(req.body);
+  
+    try {
+        client.save();
+      res.send(client);
+      console.log('insert ok');
+    } catch (error) {
+      res.status(500).send(error);
+        console.log("erreur : "+error)
+    }
+})
+
+app.get('/findClient', (req, res) => {
+    ClientModel.find({}).exec(function (err, data) {
+        if (err) {
+            console.log(err);
+            res.status(200).send({ error: 'Failed insert' });
+        }
+
+        if (!data) {
+            res.send(403, { error: 'Authentication Failed' });
+        }
+        res.status(200).send(data);
+        console.log('success generate List');
+    });
+})
 
 app.use('/allCLient', client); // client
 
@@ -20,9 +51,6 @@ app.get('/', (req, res) => {
     // res.sendFile(path.join(__dirname,'crud-angular/index.html'));
     res.send('./crud-angular/index');
 })
-// var rep = commande.calc(2, 2);
-
-// console.dir(rep)
 
 app.get('/token/:mail/:mdp', (req, res) => {
     // verification mail et mdp
@@ -40,8 +68,8 @@ app.get('/token/:mail/:mdp', (req, res) => {
 })
 
 
-token = connex.token()
-console.log(token)
+// token = connex.token()
+// console.log(token)
 const port = process.env.PORT || 3000;
 app.listen(port, function (){
     console.log(`Listening on port ${port}`); 
