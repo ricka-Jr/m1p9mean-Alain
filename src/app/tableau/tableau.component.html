@@ -1,0 +1,14 @@
+hhh
+<table class="w-100 mx-auto">
+    <tr class="text-center "  >
+        <th *ngFor="let k of key">{{ k }}</th>
+    </tr>
+    <ng-template [ngIf]="true" *ngFor="let d of arr;let i=index">
+            
+        <tr *ngFor="let x of child(d)" class="text-center {{i%2==1?'odd':''}}">
+            <td *ngFor="let k of key">{{ x[k] }}</td>
+        </tr>
+    </ng-template>
+</table>
+<h3 *ngIf="data==undefined" class="text-center row">Aucun résultat !</h3>
+iii
