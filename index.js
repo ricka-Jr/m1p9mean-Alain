@@ -13,44 +13,31 @@ app.use(bodyParser.json())
 
 console.log('connecter : '+connex.conMongoose())
 
-app.post('/newClient', (req, res) => {
-    const client = new ClientModel(req.body);
-  
-    try {
-        client.save();
-      res.send(client);
-      console.log('insert ok');
-    } catch (error) {
-      res.status(500).send(error);
-        console.log("erreur : "+error)
-    }
-})
-
-app.get('/findClient', (req, res) => {
+app.get('/findClient/:mail', (req, res) => {
     ClientModel.find({}).exec(function (err, data) {
         if (err) {
             console.log(err);
-            res.status(200).send({ error: 'Failed insert' });
+            res.status(400).send({ error: 'Failed insert' });
         }
-
-        if (!data) {
-            res.send(403, { error: 'Authentication Failed' });
+        if (!data) res.send(403, { error: 'Authentication Failed' });
+        for(let i=0; i<data.length; i++){
+            if(req.params.mail == data[i].email){ 
+                console.log(data[i].email)
+                res.status(200).send(data);
+            }
+            else console.log('mail not found')
         }
-        res.status(200).send(data);
-        console.log('success generate List');
+        
     });
 })
 
-app.use('/allCLient', client); // client
+
+
+app.post('/inscriptionClient', client.insertClient); // inscription client
 
 app.use('/findCommande', commande.router); // azo dooly ilay request rehetra
 
-app.use(express.static(path.join(__dirname,'crud-angular')));//necessaire
-
-app.get('/', (req, res) => {
-    // res.sendFile(path.join(__dirname,'crud-angular/index.html'));
-    res.send('./crud-angular/index');
-})
+app.post('/login', client.loginClient) // login client
 
 app.get('/token/:mail/:mdp', (req, res) => {
     // verification mail et mdp
@@ -68,8 +55,6 @@ app.get('/token/:mail/:mdp', (req, res) => {
 })
 
 
-// token = connex.token()
-// console.log(token)
 const port = process.env.PORT || 3000;
 app.listen(port, function (){
     console.log(`Listening on port ${port}`); 
