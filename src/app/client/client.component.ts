@@ -9,16 +9,26 @@ declare function animation() : void
   styleUrls: ['./client.component.css']
 })
 export class ClientComponent implements OnInit {
-  username : string = "client@ekaly.mg"
+  email : string = "client@ekaly.mg"
   password : string = "client1234"
   client : any = {}
+  EmailAndPassword : any = {}
   constructor(public ws:PersonneService, private elementRef:ElementRef, private router : Router) { }
   // token : any = this.ws.headers;
   ngOnInit(): void {
     animation()
   }
   login(){
-    this.ws.login(this.username, this.password).subscribe((data : any)=>{
+    this.ws.login(this.email, this.password).subscribe((data : any)=>{
+      this.router.navigate(['commande'])
+    },
+     (error : any)=>{
+      alert(error.error)
+     })
+  }
+
+  loginClient(){
+    this.ws.loginClient(this.EmailAndPassword).subscribe((data : any)=>{
       this.router.navigate(['commande'])
     },
      (error : any)=>{
@@ -27,8 +37,7 @@ export class ClientComponent implements OnInit {
   }
 
   insertClient(){
-    this.ws.createClient(this.client).subscribe(
-      
+    this.ws.createClient(this.client).subscribe(  
       (data : any) => {
           console.log('token = '+ data.token)
           this.router.navigate(['commande'])

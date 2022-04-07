@@ -28,9 +28,15 @@ export class PersonneService {
   create(personne: any){
     return this.http.post(base_url + '/findCommande/personnes', personne, this.headers);
   }
-
+  
+// inscription client
   createClient(client: any){
-    return this.http.post(base_url + '/allCLient/insertClient', client,  this.headers);
+    return this.http.post(base_url + '/inscriptionClient', client,  this.headers);
+  }
+
+// login client
+  loginClient(EmailAndPassword: any){
+    return this.http.post(base_url + '/loginClient', EmailAndPassword,  this.headers);
   }
   // { observe: 'response' }
 }

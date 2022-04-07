@@ -7,14 +7,14 @@
                     <form>
                         <h2 class="h2">Login Client</h2>
                         <label for="">
-                            <span>Username</span>
-                            <input type="text" [(ngModel)]="username" name="username" value="Pointeur">
+                            <span>Email</span>
+                            <input type="text" [(ngModel)]="EmailAndPassword.email" name="email" value="Pointeur">
                         </label>
                         <label for="">
                             <span>Password</span>
-                            <input type="password" [(ngModel)]="password" name="password" value="Pointeur">
+                            <input type="password" [(ngModel)]="EmailAndPassword.password" name="password" value="Pointeur">
                         </label>
-                        <input type="submit" (click)="login()" class="button" value="Sign in">
+                        <input type="submit" (click)="loginClient()" class="button" value="Sign in">
                     </form>
                     <div class="social-media">
                         <ul>
