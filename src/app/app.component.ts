@@ -4,6 +4,9 @@ import { PersonneService } from 'src/services/personne.service';
 import { getMessaging, getToken, onMessage } from "firebase/messaging" ;
 import { environment } from 'src/environments/environment';
 import { initializeApp } from "firebase/app" ; 
+import { Router, NavigationEnd } from '@angular/router';
+import {filter} from 'rxjs/operators';
+
 initializeApp(environment.firebaseConfig);
 
 @Component({
@@ -15,8 +18,13 @@ initializeApp(environment.firebaseConfig);
 export class AppComponent implements OnInit{
   personne: any = {}
   result: any[] = []
-  title = 'crud-angular';
-  constructor(private personneService: PersonneService){}
+  title = 'crud-angular'
+  CurrentUrl : string = "accueil"
+  constructor(private personneService: PersonneService, private router : Router){
+    router.events.subscribe((url:any) => {
+      this.CurrentUrl = router.url
+    });
+  }
   ngOnInit(): void {
     this.Find();
     this.requestPermission(); 

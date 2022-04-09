@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ClientComponent } from './client/client.component';
-import { CommandeComponent } from './commande/commande.component';
 
 const routes: Routes = [
   { path: '', component: ClientComponent },
-  { path: 'commande', component: CommandeComponent },
+  { 
+    path: 'accueil',
+    loadChildren: () => import('./main-page/main-page.module').then((m)=>m.MainPageModule),
+  },
 ];
 
 @NgModule({

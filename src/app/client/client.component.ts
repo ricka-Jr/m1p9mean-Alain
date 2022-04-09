@@ -20,7 +20,7 @@ export class ClientComponent implements OnInit {
   }
   login(){
     this.ws.login(this.email, this.password).subscribe((data : any)=>{
-      this.router.navigate(['commande'])
+      this.router.navigate(['accueil/accueil-Ekaly'])
     },
      (error : any)=>{
       alert(error.error)
@@ -29,7 +29,7 @@ export class ClientComponent implements OnInit {
 
   loginClient(){
     this.ws.loginClient(this.EmailAndPassword).subscribe((data : any)=>{
-      this.router.navigate(['commande'])
+      this.router.navigate(['accueil/accueil-Ekaly'])
     },
      (error : any)=>{
       alert(error.error)
@@ -40,7 +40,7 @@ export class ClientComponent implements OnInit {
     this.ws.createClient(this.client).subscribe(  
       (data : any) => {
           console.log('token = '+ data.token)
-          this.router.navigate(['commande'])
+          this.router.navigate(['accueil/accueil-Ekaly'])
       }, (err) => {
         alert('erreur : '+err.statusText);
       });
@@ -51,7 +51,7 @@ export class ClientComponent implements OnInit {
 // (res) => {
       //   if (res.status == 200) {
       //     localStorage.setItem('token', this.token );
-      //     this.router.navigate(['commande'])
+      //     this.router.navigate(['accueil/accueil-Ekaly'])
       //   }
       //   if(res.status == 500){
       //     alert(res.statusText)

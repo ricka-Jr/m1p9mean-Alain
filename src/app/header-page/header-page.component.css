@@ -1,0 +1,69 @@
+/* body {
+    height: 1232px;
+} */
+a.active[_ngcontent-nqm-c54] {
+    background-color: #9e85ff !important;
+}
+.header-ordi {
+    height: 90px;
+    background: -webkit-repeating-linear-gradient(left, #7579ff, #b224ef);
+    z-index: 1;
+    position: fixed;
+    /* margin-left: 10%; */
+    width: 100%;
+    top: 0px;
+}
+a.active{
+    background-color: #8e91f4 !important;
+}
+.centre {
+    height: 300px;
+    background: -webkit-repeating-linear-gradient(left, #7579ff, #b224ef);
+    border-bottom-right-radius: 45% 40%;
+    margin-bottom: 3%;
+    /* position: relative;
+    background-image: url(/assets/img/kaly.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+     */
+}
+
+
+/* .centre::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    margin-top: 5.3%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(255deg, #7579ff, #b224ef);
+    z-index: 1;
+    mix-blend-mode: screen;
+    mix-blend-mode: multiply;
+} */
+
+/* .centre img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} */
+
+@media screen and (max-width: 600px) {
+    .centre {
+        height: 200px;
+        background: -webkit-repeating-linear-gradient(left, #7579ff, #b224ef);
+        border-bottom-right-radius: 45% 40%;
+    }
+    .header-ordi1 {
+        height: 80px;
+        background: -webkit-repeating-linear-gradient(left, #7579ff, #b224ef);
+        z-index: 1;
+        position: fixed;
+        width: 100%;
+        top: 0px;
+    }
+}
