@@ -1,12 +1,16 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const cors = require('cors');
-var ClientModel = require('./client')
-var connex = require('./connection');
-var commande = require('./commande');
-var client = require('./inscription_client');
 const app = express();
+const cors = require('cors');
+
+var sakafo = require('./metier/sakafo') // metier sakafo
+var restaurant = require('./metier/restaurant') // metier restaurant
+var connex = require('./connection'); // connection base
+var commande = require('./metier/commande'); // commande client
+var client = require('./metier/client'); // metier client
+var ClientModel = require('./model/ClientModel') // model client
 const path = require('path');
+
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
@@ -31,13 +35,15 @@ app.get('/findClient/:mail', (req, res) => {
     });
 })
 
+app.get('/findAllSakafo/:id', sakafo.findAll) //find sakafo
 
+app.get('/findAllRestaurant', restaurant.findAll) //find restaurant
 
 app.post('/inscriptionClient', client.insertClient); // inscription client
 
 app.use('/findCommande', commande.router); // azo dooly ilay request rehetra
 
-app.post('/login', client.loginClient) // login client
+app.post('/loginClient', client.loginClient) // login client
 
 app.get('/token/:mail/:mdp', (req, res) => {
     // verification mail et mdp

@@ -1,6 +1,6 @@
 const express = require('express')
-var ClientModel = require('./client')
-const connex = require('./connection');
+var ClientModel = require('../model/ClientModel')
+const connex = require('../connection');
 const router = express.Router()
 
 // verification input vide or null
