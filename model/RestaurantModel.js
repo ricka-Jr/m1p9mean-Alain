@@ -12,6 +12,9 @@ const restaurantSchema = new mongoose.Schema({
     profil: {
       type: String,
     },
+    contact: {
+      type: String,
+    },
 });
 
 

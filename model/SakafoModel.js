@@ -9,6 +9,9 @@ const sakafoSchema = new mongoose.Schema({
     prix: {
       type: Number,
     },
+    profil: {
+      type: String,
+    },
     restaurant: {
       _id: {type: String},
       nom: {type: String},

@@ -1,6 +1,6 @@
 var sakafo = require('../model/SakafoModel')
 
-function findAll(req, res){
+function findByIdRestaurant(req, res){
     sakafo.find({"restaurant._id" : req.params.id}).exec((err, data) => {
         if (err) {
             console.log(err);
@@ -12,4 +12,4 @@ function findAll(req, res){
     });
 }
 
-module.exports = {findAll : findAll}
+module.exports = {findByIdRestaurant : findByIdRestaurant}

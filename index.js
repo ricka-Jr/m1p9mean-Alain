@@ -35,7 +35,7 @@ app.get('/findClient/:mail', (req, res) => {
     });
 })
 
-app.get('/findAllSakafo/:id', sakafo.findAll) //find sakafo
+app.get('/findbyRestaurant/:id', sakafo.findByIdRestaurant) //find sakafo
 
 app.get('/findAllRestaurant', restaurant.findAll) //find restaurant
 
