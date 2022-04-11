@@ -1,1 +1,6 @@
-<p>panier works!</p>
+<div class="container-fluid">
+    <!-- <span *ngIf="sessionResto">{{sessionResto}}</span> -->
+    <div class="row menu" *ngFor="let paniers of panier">
+        <span>{{paniers.designation}}</span>
+    </div>
+</div>

@@ -1,11 +1,11 @@
 
-
+<!-- {{plats[0].restaurant.nom}} -->
 <div class="container-fluid">
-  <div class="row "><p class="titre">Les Plats de {{plats[0].restaurant.nom}}</p><hr></div><br>
+  <!-- <div class="row "><p class="titre">Les Plats de {{session}} </p><hr></div><br> -->
     <div class="d-flex flex-wrap">
-        <div class="row menu" *ngFor="let plat of plats">
+        <div class="row menu" *ngFor="let plat of plats; let i = index">
             <div class="col-md-2" title="Ajouter au panier">
-              <a routerLink="panier" [queryParams]="{idKaly : plat._id}"><img src="/assets/img/{{plat.profil}}" class="menu-img" alt=""></a>
+              <a (click)="findIdResto(i)"><img src="/assets/img/{{plat.profil}}" class="menu-img" alt=""></a>
             </div>
             <div class="col-md-8 menu-content">
               <div>

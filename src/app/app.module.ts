@@ -36,7 +36,7 @@ import { PanierComponent } from './panier/panier.component';
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    AutocompleteLibModule
+    AutocompleteLibModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

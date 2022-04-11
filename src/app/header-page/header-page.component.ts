@@ -17,17 +17,12 @@ export class HeaderPageComponent implements OnInit {
     userInfo : new FormControl()
     
   })
-  
-  
   constructor(private route: ActivatedRoute, public ws:PersonneService) { }
 
   ngOnInit(): void {
     this.idRestaurant =  this.route.snapshot.queryParamMap.get('idRestaurant')+"";
     this.findPlatsByResto(this.idRestaurant)
 
-    // this.countries.map(
-    //   (country) => (country.name = `${country.name} ${country.population}`)
-    // );
   }
   
   findPlatsByResto(id : string){
@@ -40,10 +35,11 @@ export class HeaderPageComponent implements OnInit {
   // findPlatsByResto(){
   //   this.ws.findPlatByRestaurant(this.idRestaurant).subscribe((data: any) => {
   //     data.forEach((value: any) =>{
-  //       console.log
   //         this.plats = value;
-  //     })
-  //     //  for(let i=0)
+  //       })
   //     });
   // }
+    // this.countries.map(
+    //   (country) => (country.name = `${country.name} ${country.population}`)
+    // );
 }
