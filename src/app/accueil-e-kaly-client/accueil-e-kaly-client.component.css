@@ -115,9 +115,6 @@
     src: url(https://fonts.gstatic.com/s/rubik/v19/iJWKBXyIfDnIV7nPrXyi0A.woff2) format('woff2');
     unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
   }
-  .titre{
-    text-align: center;
-  }
   /* latin */
   @font-face {
     font-family: 'Rubik';
@@ -220,9 +217,9 @@ body {
   transform: translateY(-50%);
   transition: transform calc(var(--d) * 2) var(--e);
 }
-.card:nth-child(1):before {
+/* .card:nth-child(1):before {
   background-image: url(/assets/img/kaly.jpg);
-}
+} */
 /* .card:nth-child(2):before {
   background-image: url(/assets/img/kaly.jpg);
 }
@@ -249,9 +246,10 @@ body {
 }
 
 .title {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: bold;
   line-height: 1.2;
+  color: #c17811;
 }
 
 .copy {

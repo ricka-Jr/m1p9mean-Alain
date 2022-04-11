@@ -20,7 +20,7 @@ export class PersonneService {
     return {headers: headers};
   }
 
-  
+// commande 
   find(){
     return this.http.get(base_url + '/findCommande/personnes', this.headers);
   }
@@ -29,14 +29,23 @@ export class PersonneService {
     return this.http.post(base_url + '/findCommande/personnes', personne, this.headers);
   }
   
-// inscription client
+//  client
   createClient(client: any){
     return this.http.post(base_url + '/inscriptionClient', client,  this.headers);
   }
 
-// login client
   loginClient(EmailAndPassword: any){
     return this.http.post(base_url + '/loginClient', EmailAndPassword,  this.headers);
   }
   // { observe: 'response' }
+
+// restaurant
+  findAllRestaurant(){
+    return this.http.get(base_url + '/findAllRestaurant', this.headers);
+  }
+  
+// plats
+  findPlatByRestaurant(idResto : string){
+    return this.http.get(base_url + '/findbyRestaurant/'+ idResto, this.headers);
+  }
 }

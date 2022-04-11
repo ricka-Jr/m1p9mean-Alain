@@ -7,10 +7,10 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                       <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                          <a class="nav-link" routerLink="accueil-Ekaly" routerLinkActive="active">Accueil-eKaly</a>
+                          <a class="nav-link" routerLink="accueil-Ekaly" routerLinkActive="active-page">Accueil-eKaly</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" routerLink="commande" routerLinkActive="active">Commander</a>
+                          <a class="nav-link" routerLink="panier" routerLinkActive="active-page">Panier</a>
                         </li>
                       </ul>
                     </div>
@@ -19,11 +19,27 @@
                 <div class="col-md-4 ">
                     <form class="row form-inline mt-3">
                         <div class="col-md-6">
-                            <input class="form-control" type="search" placeholder="Recherche" >
+                            <ng-autocomplete
+                            [data]="plats"
+                            [searchKeyword]="keyword"
+                            placeholder="Rechercher"
+                            [itemTemplate]="itemTemplate"
+                            [notFoundTemplate]="notFoundTemplate">
+
+                            </ng-autocomplete>
+                            
+                            <ng-template #itemTemplate let-item>
+                                <a [innerHTML]="item.designation"></a>
+                            </ng-template>
+
+                            <ng-template #notFoundTemplate let-notFound>
+                                <div [innerHTML]="notFound"></div>
+                            </ng-template>
+                            <!-- <input class="form-control" type="search" placeholder="Recherche" > -->
                         </div>
-                        <div class="col-md-4">
+                        <!-- <div class="col-md-4">
                             <button class="btn btn-outline-light" type="submit">Cherche</button>
-                        </div>
+                        </div> -->
                     </form>
                 </div>
             </div>

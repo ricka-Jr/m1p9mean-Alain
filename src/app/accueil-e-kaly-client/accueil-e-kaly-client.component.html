@@ -1,121 +1,19 @@
+
 <main class="page-content">
-    <div class="d-flex flex-wrap">
-        <div class="cardLine">
-            <a href="#">
-                <div class="card">
-                    <div class="content">
-                        <h2 class="title">Gasy food's</h2>
-                        <p class="copy">Restaurant By pass<br>+261 58 908 32</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="cardLine">
-            <a href="#">
-                <div class="card">
-                    <div class="content">
-                        <h2 class="title">Gasy food's</h2>
-                        <p class="copy">Restaurant By pass<br>+261 58 908 32</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="cardLine">
-            <a href="#">
-                <div class="card">
-                    <div class="content">
-                        <h2 class="title">Gasy food's</h2>
-                        <p class="copy">Restaurant By pass<br>+261 58 908 32</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="cardLine">
-            <a href="#">
-                <div class="card">
-                    <div class="content">
-                        <h2 class="title">Gasy food's</h2>
-                        <p class="copy">Restaurant By pass<br>+261 58 908 32</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="cardLine">
-            <a href="#">
-                <div class="card">
-                    <div class="content">
-                        <h2 class="title">Gasy food's</h2>
-                        <p class="copy">Restaurant By pass<br>+261 58 908 32</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="cardLine">
-            <a href="#">
-                <div class="card">
-                <div class="content">
-                    <h2 class="title">Gasy food's</h2>
-                    <div class="copy">Restaurant By pass<br>+261 58 908 32</div>
-                </div>
-                </div>
-            </a>
-        </div>
-        <div class="cardLine">
-            <a href="#">
-                <div class="card">
-                    <div class="content">
-                        <h2 class="title">Gasy food's</h2>
-                        <p class="copy">Restaurant By pass<br>+261 58 908 32</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="cardLine">
-            <a href="#">
-                <div class="card">
-                    <div class="content">
-                        <h2 class="title">Gasy food's</h2>
-                        <p class="copy">Restaurant By pass<br>+261 58 908 32</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="cardLine">
-            <a href="#">
-                <div class="card">
-                    <div class="content">
-                        <h2 class="title">Gasy food's</h2>
-                        <p class="copy">Restaurant By pass<br>+261 58 908 32</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="cardLine">
-            <a href="#">
-                <div class="card">
-                    <div class="content">
-                        <h2 class="title">Gasy food's</h2>
-                        <p class="copy">Restaurant By pass<br>+261 58 908 32</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="cardLine">
-            <a href="#">
-                <div class="card">
-                    <div class="content">
-                        <h2 class="title">Gasy food's</h2>
-                        <p class="copy">Restaurant By pass<br>+261 58 908 32</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="cardLine">
-            <a href="#">
-                <div class="card">
-                    <div class="content">
-                        <h2 class="title">Gasy food's</h2>
-                        <p class="copy">Restaurant By pass<br>+261 58 908 32</p>
+    <div class="d-flex flex-wrap" *ngIf="restaurants">
+        <div class="cardLine" *ngFor="let resto of restaurants">
+            <!-- <style>
+                .card:nth-child(1):before{
+                    background-image: url(/assets/img/extra.png);
+                }
+                [ngStyle]="div:nth-child(1):before{{'background-image': url(/assets/img/kaly.jpg);}}"
+            </style> -->
+            
+            <a routerLink="../commande" [queryParams]="{idRestaurant : resto._id}">
+                <div class="card" [style.background-image]="'url(/assets/img/'+resto.profil+')'">
+                    <div class="content" >
+                        <h2 class="title">{{resto.nom}}</h2>
+                        <p class="copy">{{resto.email}}<br>{{resto.contact}}</p>
                     </div>
                 </div>
             </a>

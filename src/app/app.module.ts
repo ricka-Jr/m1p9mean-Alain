@@ -14,6 +14,8 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { HeaderPageComponent } from './header-page/header-page.component';
 import { BodyPageComponent } from './body-page/body-page.component';
 import { CopyrightComponent } from './copyright/copyright.component';
+import {AutocompleteLibModule} from 'angular-ng-autocomplete';
+import { PanierComponent } from './panier/panier.component';
 
 @NgModule({
   declarations: [
@@ -25,14 +27,16 @@ import { CopyrightComponent } from './copyright/copyright.component';
     MainPageComponent,
     HeaderPageComponent,
     BodyPageComponent,
-    CopyrightComponent
+    CopyrightComponent,
+    PanierComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     HttpClientModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AutocompleteLibModule
   ],
   providers: [],
   bootstrap: [AppComponent]

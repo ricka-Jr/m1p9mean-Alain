@@ -1,2 +1,20 @@
 
-passer votre commande
+
+<div class="container-fluid">
+  <div class="row "><p class="titre">Les Plats de {{plats[0].restaurant.nom}}</p><hr></div><br>
+    <div class="d-flex flex-wrap">
+        <div class="row menu" *ngFor="let plat of plats">
+            <div class="col-md-2" title="Ajouter au panier">
+              <a routerLink="panier" [queryParams]="{idKaly : plat._id}"><img src="/assets/img/{{plat.profil}}" class="menu-img" alt=""></a>
+            </div>
+            <div class="col-md-8 menu-content">
+              <div>
+                <span class="designation">{{plat.designation}} </span>..................................................... <span>{{plat.prix}} Ar</span>
+              </div><br>
+              <div>
+                Crispy fish, Poulet laqué, Neugets, Cheddar, Sauce algérienne
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

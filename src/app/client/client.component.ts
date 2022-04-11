@@ -17,6 +17,7 @@ export class ClientComponent implements OnInit {
   // token : any = this.ws.headers;
   ngOnInit(): void {
     animation()
+
   }
   login(){
     this.ws.login(this.email, this.password).subscribe((data : any)=>{

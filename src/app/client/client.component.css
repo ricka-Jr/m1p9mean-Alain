@@ -30,7 +30,7 @@ body {
     justify-content: center;
     align-items: center;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    background: -webkit-repeating-linear-gradient(left, #7579ff, #b224ef);
+    background: -webkit-repeating-linear-gradient(left, #202020, #f0eaea);
 }
 
 
@@ -46,7 +46,7 @@ body {
         justify-content: center;
         align-items: center;
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-        background: -webkit-repeating-linear-gradient(left, #161616, #f0eef1);
+        background: -webkit-repeating-linear-gradient(left, #202020, #f0eaea);
     }
     .forms {
         position: relative;
@@ -185,14 +185,14 @@ input.button {
     text-transform: uppercase;
     font-weight: 600;
     font-family: 'Nunito', sans-serif;
-    background: -webkit-repeating-linear-gradient(right, #7579ff, #b224ef);
+    background: -webkit-repeating-linear-gradient(right, #100f0f, #c9c3c3c6);
 }
 
 /* -------------------------------------------------------- */
 
 
 .button:hover {
-    background: -webkit-repeating-linear-gradient(left, #7579ff, #b224ef);
+    background: -webkit-repeating-linear-gradient(left, #100f0f, #c9c3c3c6);
 }
 
 .social-media {

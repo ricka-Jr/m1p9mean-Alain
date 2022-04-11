@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccueilEKalyClientComponent } from '../accueil-e-kaly-client/accueil-e-kaly-client.component';
 import { BodyPageComponent } from '../body-page/body-page.component';
 import { CommandeComponent } from '../commande/commande.component';
+import { PanierComponent } from '../panier/panier.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,7 @@ const routes: Routes = [
     children : [
       { path: 'accueil-Ekaly', component: AccueilEKalyClientComponent },
       { path: 'commande', component: CommandeComponent },
+      { path: 'panier', component: PanierComponent },
     ]
   }
 ];
