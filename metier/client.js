@@ -10,7 +10,7 @@ const router = express.Router()
         (typeof value === 'object' && Object.keys(value).length === 0) ||
         (typeof value === 'string' && value.trim().length === 0)
     )
-
+    
 //   inscription nouveau client
     function insertClient(req, res){
         let client = new ClientModel(req.body);
@@ -19,11 +19,10 @@ const router = express.Router()
             if((!isEmpty(req.body.nom) && !isEmpty(req.body.addresse) && !isEmpty(req.body.email) && !isEmpty(req.body.password))){
                 client.save();
                 token = connex.token()
-                res.status(200).send({token});
+                res.status(200).send({token: token, data: client});
             }
             else res.status(500).send('client vide');
         } catch (error) {
-            // error.message = 'hahahaha'
             res.status(400).send('ERROR : CHAMP INVALID');
             console.log("l'erreur est : "+error.message)
         }
@@ -36,12 +35,18 @@ const router = express.Router()
             if (isEmpty(data)) res.status(403).send({ message: 'AUTHENTICATION FAILED' });
             else{
                 var token = connex.token()
-                res.status(200).send({token : token, message : 'SUCCESS LOGIN'});
+                res.status(200).send({token : token, message : 'SUCCESS LOGIN', data : data});
             }
             
         });
     }
     
-    
+//  se déconnecter
+    function logoutClient(req,res){
+        req.logout();
+        res.redirect("/");
+    }
+
+
 // exports.loginClient = loginClient
 module.exports = {loginClient : loginClient, insertClient : insertClient, isEmpty : isEmpty}
