@@ -7,18 +7,39 @@ import { Observable } from 'rxjs';
 })
 export class PersonneService {
 
-  constructor(private http: HttpClient) { }
-
   token : string = 'haha';
+  constructor(private http: HttpClient) {
+    
+   }
+
   login(mail:string, mdp:string){
     return this.http.get(base_url + '/token/'+mail +'/'+ mdp)
   }
   // findToken():Observable<any>{ return this.http.get(base_url + '/token') }
-
+  setToken(token : string){
+    localStorage.setItem('access_token', token)
+  }
+  getToken(){
+    return localStorage.getItem('access_token')
+  }
   get headers(){
-    const headers = new HttpHeaders().set('Content-type', 'application/json').set('token', this.token);
+    const headers = new HttpHeaders().set('Content-type', 'application/json').set('tokens', this.getToken()+"");
     return {headers: headers};
   }
+
+  removeToken(){
+    localStorage.clear()
+  }
+  
+//  client
+createClient(client: any){
+  return this.http.post(base_url + '/inscriptionClient', client,  this.headers);
+}
+
+loginClient(EmailAndPassword: any){
+  return this.http.post(base_url + '/loginClient', EmailAndPassword,  this.headers);
+}
+// { observe: 'response' } localStorage.setItem('access_token', this.token)+""
 
 // commande 
   find(){
@@ -29,16 +50,6 @@ export class PersonneService {
     return this.http.post(base_url + '/findCommande/personnes', personne, this.headers);
   }
   
-//  client
-  createClient(client: any){
-    return this.http.post(base_url + '/inscriptionClient', client,  this.headers);
-  }
-
-  loginClient(EmailAndPassword: any){
-    return this.http.post(base_url + '/loginClient', EmailAndPassword,  this.headers);
-  }
-  // { observe: 'response' }
-
 // restaurant
   findAllRestaurant(){
     return this.http.get(base_url + '/findAllRestaurant', this.headers);

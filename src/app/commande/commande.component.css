@@ -21,6 +21,9 @@
     font-size: 1.5rem;
 }
 
+.lienCursor{
+    cursor: pointer;
+  }
 .titre{
     color: rgb(147, 15, 15);
     text-align: center;

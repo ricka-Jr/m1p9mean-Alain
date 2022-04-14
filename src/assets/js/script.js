@@ -6,3 +6,7 @@ function animation(){
 
     });
 }
+function visible(i){
+    var elem = document.getElementById('platCommander'+i);
+    elem.parentNode.removeChild(elem);
+}

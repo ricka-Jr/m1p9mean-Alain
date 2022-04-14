@@ -5,7 +5,7 @@
     <div class="d-flex flex-wrap">
         <div class="row menu" *ngFor="let plat of plats; let i = index">
             <div class="col-md-2" title="Ajouter au panier">
-              <a (click)="findIdResto(i)"><img src="/assets/img/{{plat.profil}}" class="menu-img" alt=""></a>
+              <a (click)="findIdResto(i)" class="lienCursor"><img src="/assets/img/{{plat.profil}}" class="menu-img" alt=""></a>
             </div>
             <div class="col-md-8 menu-content">
               <div>

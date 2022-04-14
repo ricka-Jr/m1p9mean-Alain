@@ -11,18 +11,17 @@
                 </div>
             </div>
             <div class="row border-top border-bottom" id="newProduit" *ngFor="let panier of paniers; let i=index">
-                <div class="row main align-items-center" [id]="'platCommander'+i">
+                <div class="row main align-items-center">
                     <div class="col-3"><img class="image" src="/assets/img/{{panier.profil}}"></div>
                     <div class="col">
                         <div class="row text-muted">{{panier.designation}}</div>
                         <div class="row">{{panier.prix}} Ar</div>
                     </div>
                     <div class="col-4"> 
-                        <input type="hidden" [id]="'kaly'+i" value="{{panier._id}}" name="id_resto">
                         <input type="number" [formControl]="quantite" [id]="'qte_'+i" name="quantite{{i}}" min="1" placeholder="Quantité">    
                     </div>
                     <div class="col"> 
-                        <button type="button" class="btn btn-secondary boutton" (click)="commander('kaly'+i, i)">Valider</button>   
+                        <button type="button" class="btn btn-secondary boutton" (click)="commander(i)">Valider</button>   
                     </div>
                     
                 </div>

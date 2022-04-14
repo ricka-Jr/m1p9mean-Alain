@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +16,7 @@ import { BodyPageComponent } from './body-page/body-page.component';
 import { CopyrightComponent } from './copyright/copyright.component';
 import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 import { PanierComponent } from './panier/panier.component';
+import { ChildPanierComponent } from './child-panier/child-panier.component';
 
 @NgModule({
   declarations: [
@@ -28,15 +29,17 @@ import { PanierComponent } from './panier/panier.component';
     HeaderPageComponent,
     BodyPageComponent,
     CopyrightComponent,
-    PanierComponent
+    PanierComponent,
+    ChildPanierComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    AutocompleteLibModule,
+    AutocompleteLibModule
   ],
   providers: [],
   bootstrap: [AppComponent]

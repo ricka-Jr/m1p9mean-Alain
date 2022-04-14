@@ -29,22 +29,48 @@ export class ClientComponent implements OnInit {
   }
 
   loginClient(){
-    this.ws.loginClient(this.EmailAndPassword).subscribe((data : any)=>{
-      this.router.navigate(['accueil/accueil-Ekaly'])
-    },
-     (error : any)=>{
-      alert(error.error)
-     })
+    this.ws.loginClient(this.EmailAndPassword).subscribe({
+      next: data => {
+        // @ts-ignore
+        this.ws.setToken(data.token)
+      },
+      error: err => {
+        alert('ERROR :'+err.error)
+      },
+      complete: ()=> {
+        this.router.navigate(['accueil/accueil-Ekaly'])
+      }
+    })
+  }
+
+  logoutClient(){
+    this.ws.removeToken()
+    this.router.navigate([''])
   }
 
   insertClient(){
-    this.ws.createClient(this.client).subscribe(  
-      (data : any) => {
-          console.log('token = '+ data.token)
-          this.router.navigate(['accueil/accueil-Ekaly'])
-      }, (err) => {
-        alert('erreur : '+err.statusText);
-      });
+    this.ws.createClient(this.client).subscribe({
+      next: data => {
+        console.dir(data)
+        // @ts-ignore
+        console.log('tokenNewClient = '+ data.token)
+        // @ts-ignore
+        this.ws.setToken(data.token)
+      },
+      error: err => {
+        alert('ERROR :'+err.error)
+      },
+      complete: ()=> {
+        this.router.navigate(['accueil/accueil-Ekaly'])
+      }
+    })
+      // (data : any) => {
+      //     console.log('tokenNewClient = '+ data.token)
+      //     console.dir(data)
+      //     this.router.navigate(['accueil/accueil-Ekaly'])
+      // }, (err) => {
+      //   alert('erreur : '+err.statusText);
+      // });
       
   }
 

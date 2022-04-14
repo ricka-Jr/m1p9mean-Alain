@@ -1,0 +1,56 @@
+.container{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.nbPlat{
+    text-align: right;
+}
+.cart {
+    background-color: #e8e8ec;
+    padding: 4vh 5vh;
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+    box-shadow: 40px 20px 30px 10px rgb(184, 163, 163);
+    margin-left: 15%;
+}
+#newProduit{
+  background-color: #dfdae1;
+  margin-top: 2%;
+  border-radius: 1rem;
+}
+.summary {
+  background-color: #99969a;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  padding: 4vh;
+  color: rgb(65, 65, 65);
+}
+.boutton{
+    margin-left: 20%;
+}
+.image{
+  width: 70px;
+  height: 70px;
+  display: flex;
+  margin-left: 10%;
+  margin-right: 25rem;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  border-radius: 50%;
+}
+
+input[type=number] {
+  width: 90px;
+  overflow: hidden;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  background-color: transparent;
+}
+input[type=number]:hover{
+  background-color: rgb(194, 190, 190);
+}
+
+input[type=number]:focus {
+  width: 70%;
+}
+  
