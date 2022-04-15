@@ -35,6 +35,8 @@ app.get('/findClient/:mail', (req, res) => {
     });
 })
 
+app.post('/logoutClient', client.logoutClient) 
+
 app.get('/findbyRestaurant/:id', sakafo.findByIdRestaurant) //find sakafo
 
 app.get('/findAllRestaurant', restaurant.findAll) //find restaurant

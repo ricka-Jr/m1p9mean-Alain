@@ -2,6 +2,7 @@ const express = require('express')
 var ClientModel = require('../model/ClientModel')
 const connex = require('../connection');
 const router = express.Router()
+var token = require('./token')
 
 // verification input vide or null
     const isEmpty = (value) => (
@@ -14,12 +15,13 @@ const router = express.Router()
 //   inscription nouveau client
     function insertClient(req, res){
         let client = new ClientModel(req.body);
-        var token = ''
         try {
             if((!isEmpty(req.body.nom) && !isEmpty(req.body.addresse) && !isEmpty(req.body.email) && !isEmpty(req.body.password))){
                 client.save();
-                token = connex.token()
-                res.status(200).send({token: token, data: client});
+                var tokenGenere = connex.token()
+                console.log(client)
+                token.save(tokenGenere, client)
+                res.status(200).send({token: tokenGenere, data: client});
             }
             else res.status(500).send('client vide');
         } catch (error) {
@@ -29,13 +31,21 @@ const router = express.Router()
     }
 
 // login client
+    const arrayToObject = (data) => {
+        return data.reduce((client, item) => {
+            client = item
+            return client
+        }, {})
+    }
     function loginClient(req, res){
         ClientModel.find({ email: req.body.email, password: req.body.password}).exec((err, data) => {
             if (err) res.status(400).send({ message: 'USER NOT FOUND' });
             if (isEmpty(data)) res.status(403).send({ message: 'AUTHENTICATION FAILED' });
             else{
-                var token = connex.token()
-                res.status(200).send({token : token, message : 'SUCCESS LOGIN', data : data});
+                var tokenGenere = connex.token()
+                let client = arrayToObject(data)
+                token.save(tokenGenere, client)
+                res.status(200).send({token : tokenGenere, message : 'SUCCESS LOGIN', data : data});
             }
             
         });
@@ -43,10 +53,14 @@ const router = express.Router()
     
 //  se déconnecter
     function logoutClient(req,res){
-        req.logout();
-        res.redirect("/");
+        try {
+            token.remove(req.body._id)
+            res.status(200).send({message : 'SUCCESS DELETE OF TOKEN'});
+        } catch (error) {
+                res.status(400).send({ message: 'ERREUR SERVEUR' });
+        }
     }
 
 
 // exports.loginClient = loginClient
-module.exports = {loginClient : loginClient, insertClient : insertClient, isEmpty : isEmpty}
+module.exports = {loginClient : loginClient, insertClient : insertClient, isEmpty : isEmpty, logoutClient : logoutClient}
