@@ -16,29 +16,42 @@ export class PersonneService {
     return this.http.get(base_url + '/token/'+mail +'/'+ mdp)
   }
   // findToken():Observable<any>{ return this.http.get(base_url + '/token') }
-  setToken(token : string){
-    localStorage.setItem('access_token', token)
-  }
-  getToken(){
-    return localStorage.getItem('access_token')
-  }
+  // config token
+    setToken(token : string){
+      localStorage.setItem('access_token', token)
+    }
+    getToken(){
+      return localStorage.getItem('access_token')
+    }
+    removeSession(){
+      localStorage.clear()
+    }
+// config idClient
+    setIdClient(id : string){
+      localStorage.setItem('idClientConnecter', id)
+    }
+    getIdClientConnecter(){
+      return localStorage.getItem('idClientConnecter')
+    }
   get headers(){
     const headers = new HttpHeaders().set('Content-type', 'application/json').set('tokens', this.getToken()+"");
     return {headers: headers};
   }
 
-  removeToken(){
-    localStorage.clear()
-  }
   
 //  client
-createClient(client: any){
-  return this.http.post(base_url + '/inscriptionClient', client,  this.headers);
-}
+  createClient(client: any){
+    return this.http.post(base_url + '/inscriptionClient', client,  this.headers);
+  }
 
-loginClient(EmailAndPassword: any){
-  return this.http.post(base_url + '/loginClient', EmailAndPassword,  this.headers);
-}
+  loginClient(EmailAndPassword: any){
+    return this.http.post(base_url + '/loginClient', EmailAndPassword,  this.headers);
+  }
+
+  logoutClient(idClient: string){
+    console.log(base_url + '/logoutClient/'+ idClient);
+    return this.http.get(base_url + '/logoutClient/'+ idClient);
+  }
 // { observe: 'response' } localStorage.setItem('access_token', this.token)+""
 
 // commande 

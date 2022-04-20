@@ -14,10 +14,11 @@
                 <div class="row main align-items-center" [id]="'platCommander'+i">
                     <div class="col-3"><img class="image" src="/assets/img/{{panier.profil}}"></div>
                     <div class="col">
+                        <div class="row text-muted">{{panier._id}}</div>
                         <div class="row text-muted">{{panier.designation}}</div>
                         <div class="row">{{panier.prix}} Ar</div>
                     </div>
-                    <div class="col-4"> 
+                    <div class="col-3"> 
                         <input type="hidden" [id]="'kaly'+i" value="{{panier._id}}" name="id_resto">
                         <input type="number" [formControl]="quantite" [id]="'qte_'+i" name="quantite{{i}}" min="1" placeholder="Quantité">    
                     </div>

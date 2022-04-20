@@ -22,23 +22,24 @@ export class PanierComponent implements OnInit {
     this.paniers = this.getPanier()
   }
   getPanier(){
-    var values=[], keys=Object.keys(localStorage), i=keys.length;
-    for(let a=0; a<i;a++){
-      if(keys[a] != 'access_token'){
-        values.push(JSON.parse(localStorage.getItem(keys[a])+""));
+    var values=[], keys=Object.keys(localStorage);
+    for(let i=0; i<keys.length;i++){
+      if(keys[i] != 'access_token'){
+        values.push(JSON.parse(localStorage.getItem(keys[i])+""));
       }
     }
     return values;
   }
 
   deletePanier(initial : number){
-    var keys=Object.keys(localStorage);
-    localStorage.removeItem(keys[initial])
+    var plat= this.getPanier()
+    var key = plat[initial]._id
+    localStorage.removeItem(key)
   }
   commander(idKaly : string, i : number){
     let id_kaly = (<HTMLInputElement>document.getElementById(idKaly)).value;
     
-    console.log(id_kaly+' quantie = '+this.quantite.value)
+    // console.log(id_kaly+' quantie = '+this.quantite.value)
     this.deletePanier(i)
     visible(i)
   }

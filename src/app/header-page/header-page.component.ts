@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PersonneService } from 'src/services/personne.service';
 
 @Component({
@@ -17,7 +17,7 @@ export class HeaderPageComponent implements OnInit {
     userInfo : new FormControl()
     
   })
-  constructor(private route: ActivatedRoute, public ws:PersonneService) { }
+  constructor(private route: ActivatedRoute, public ws:PersonneService, private router : Router) { }
 
   ngOnInit(): void {
     this.idRestaurant =  this.route.snapshot.queryParamMap.get('idRestaurant')+"";
@@ -30,6 +30,22 @@ export class HeaderPageComponent implements OnInit {
           this.plats = data;
       });
       
+  }
+  deconnection(){
+    var id = this.ws.getIdClientConnecter()+""
+    this.ws.logoutClient(id).subscribe({
+      next: (data : any) => {
+        // @ts-ignore
+        console.log(data.message)
+        this.ws.removeSession()
+      },
+      error: err => {
+        alert('ERROR :'+err.error)
+      },
+      complete: ()=> {
+        this.router.navigate([''])
+      }
+    })
   }
   
   // findPlatsByResto(){

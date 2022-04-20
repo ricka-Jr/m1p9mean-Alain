@@ -30,9 +30,10 @@ export class ClientComponent implements OnInit {
 
   loginClient(){
     this.ws.loginClient(this.EmailAndPassword).subscribe({
-      next: data => {
+      next: (data : any) => {
         // @ts-ignore
         this.ws.setToken(data.token)
+        this.ws.setIdClient(data.clients[0]._id)
       },
       error: err => {
         alert('ERROR :'+err.error)
@@ -43,10 +44,10 @@ export class ClientComponent implements OnInit {
     })
   }
 
-  logoutClient(){
-    this.ws.removeToken()
-    this.router.navigate([''])
-  }
+  // logoutClient(){
+  //   this.ws.removeToken()
+  //   this.router.navigate([''])
+  // }
 
   insertClient(){
     this.ws.createClient(this.client).subscribe({
