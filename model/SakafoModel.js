@@ -18,6 +18,7 @@ const sakafoSchema = new mongoose.Schema({
       email: {type: String},
       mdp: {type: String},
       profil: {type: String},
+      contact: {type: String},
     },
 });
 

@@ -43,6 +43,7 @@ app.get('/findAllRestaurant', restaurant.findAll) //find restaurant
 app.post('/inscriptionClient', client.insertClient); // inscription client
 
 app.use('/findCommande', commande.router); // azo dooly ilay request rehetra
+app.post('/saveCommandePlat', commande.commandePlat); // azo dooly ilay request rehetra
 
 app.post('/loginClient', client.loginClient) // login client
 app.get('/logoutClient/:id', client.logoutClient) // logout client

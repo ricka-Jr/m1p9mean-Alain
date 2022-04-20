@@ -1,6 +1,5 @@
 const express = require('express')
 var ClientModel = require('../model/ClientModel')
-var TokenModel = require('../model/TokenModel')
 const connex = require('../connection');
 const router = express.Router()
 var token = require('./token')
