@@ -7,7 +7,6 @@ function findByIdRestaurant(req, res){
             res.status(400).send({ message: 'ERREUR SERVEUR' });
         }
         if (!data) res.status(403).send({ message: 'NOT DATA' });
-        console.log(data)
         res.status(200).send(data);
     });
 }

@@ -8,7 +8,7 @@ function save(token, clients){
 }
 
 function remove(idClient){
-    TokenModel.remove({'client._id' : idClient}).exec();
+    TokenModel.deleteOne({'client._id' : idClient}).exec();
 }
 
 module.exports = {save : save, remove : remove}

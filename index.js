@@ -35,7 +35,6 @@ app.get('/findClient/:mail', (req, res) => {
     });
 })
 
-app.post('/logoutClient', client.logoutClient) 
 
 app.get('/findbyRestaurant/:id', sakafo.findByIdRestaurant) //find sakafo
 
@@ -46,6 +45,7 @@ app.post('/inscriptionClient', client.insertClient); // inscription client
 app.use('/findCommande', commande.router); // azo dooly ilay request rehetra
 
 app.post('/loginClient', client.loginClient) // login client
+app.get('/logoutClient/:id', client.logoutClient) // logout client
 
 app.get('/token/:mail/:mdp', (req, res) => {
     // verification mail et mdp

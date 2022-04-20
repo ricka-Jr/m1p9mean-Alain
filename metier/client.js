@@ -1,5 +1,6 @@
 const express = require('express')
 var ClientModel = require('../model/ClientModel')
+var TokenModel = require('../model/TokenModel')
 const connex = require('../connection');
 const router = express.Router()
 var token = require('./token')
@@ -38,6 +39,7 @@ var token = require('./token')
         }, {})
     }
     function loginClient(req, res){
+        console.log(req.body)
         ClientModel.find({ email: req.body.email, password: req.body.password}).exec((err, data) => {
             if (err) res.status(400).send({ message: 'USER NOT FOUND' });
             if (isEmpty(data)) res.status(403).send({ message: 'AUTHENTICATION FAILED' });
@@ -45,7 +47,7 @@ var token = require('./token')
                 var tokenGenere = connex.token()
                 let client = arrayToObject(data)
                 token.save(tokenGenere, client)
-                res.status(200).send({token : tokenGenere, message : 'SUCCESS LOGIN', data : data});
+                res.status(200).send({token : tokenGenere, message : 'SUCCESS LOGIN', clients : data});
             }
             
         });
@@ -54,10 +56,10 @@ var token = require('./token')
 //  se déconnecter
     function logoutClient(req,res){
         try {
-            token.remove(req.body._id)
+            token.remove(req.params.id)
             res.status(200).send({message : 'SUCCESS DELETE OF TOKEN'});
         } catch (error) {
-                res.status(400).send({ message: 'ERREUR SERVEUR' });
+            res.status(400).send({ message: 'ERREUR SERVEUR' });
         }
     }
 
