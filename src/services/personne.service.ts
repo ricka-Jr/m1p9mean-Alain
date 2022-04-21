@@ -44,6 +44,10 @@ export class PersonneService {
     return this.http.post(base_url + '/inscriptionClient', client,  this.headers);
   }
 
+  getClient(id: string){
+    return this.http.get(base_url + '/getClient/'+ id,  this.headers);
+  }
+
   loginClient(EmailAndPassword: any){
     return this.http.post(base_url + '/loginClient', EmailAndPassword,  this.headers);
   }
@@ -61,6 +65,10 @@ export class PersonneService {
 
   create(personne: any){
     return this.http.post(base_url + '/findCommande/personnes', personne, this.headers);
+  }
+
+  commandeCLient(plat: any){
+    return this.http.post(base_url + '/saveCommandePlat', plat);
   }
   
 // restaurant
