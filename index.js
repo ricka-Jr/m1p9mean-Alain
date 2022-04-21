@@ -47,6 +47,7 @@ app.post('/saveCommandePlat', commande.commandePlat); // azo dooly ilay request 
 
 app.post('/loginClient', client.loginClient) // login client
 app.get('/logoutClient/:id', client.logoutClient) // logout client
+app.get('/getClient/:id', client.findById) // find by idclient
 
 app.get('/token/:mail/:mdp', (req, res) => {
     // verification mail et mdp

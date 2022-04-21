@@ -52,10 +52,22 @@ var token = require('./token')
         });
     }
     
+    function findById(req, res){
+        ClientModel.find({ _id: req.params.id}).exec((err, data) => {
+            if (err) res.status(400).send({ message: 'USER NOT FOUND' });
+            else{
+                res.status(200).send({clients : data});
+            }
+            
+        });
+    }
+    
+    
 //  se déconnecter
     function logoutClient(req,res){
         try {
             token.remove(req.params.id)
+            console.log('SUCCESS DELETE OF TOKEN')
             res.status(200).send({message : 'SUCCESS DELETE OF TOKEN'});
         } catch (error) {
             res.status(400).send({ message: 'ERREUR SERVEUR' });
@@ -64,4 +76,4 @@ var token = require('./token')
 
 
 // exports.loginClient = loginClient
-module.exports = {loginClient : loginClient, insertClient : insertClient, isEmpty : isEmpty, logoutClient : logoutClient}
+module.exports = {loginClient : loginClient, insertClient : insertClient, isEmpty : isEmpty, logoutClient : logoutClient, findById : findById}
