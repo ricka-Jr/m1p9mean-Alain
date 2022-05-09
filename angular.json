@@ -102,9 +102,15 @@
             "styles": [
               "src/styles.css",
               "src/assets/bootstrap-4.3.1-dist/css/bootstrap.min.css",
+              "src/assets/bootstrap-v5/css/bootstrap.min.css",
               "src/assets/bootstrap-4.3.1-dist/css/bootstrap.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/bootstrap-4.3.1-dist/js/bootstrap.min.js",
+              "src/assets/bootstrap-v5/js/bootstrap.min.js",
+              "src/assets/bootstrap-v5/js/popper.min.js",
+              "src/assets/bootstrap-4.3.1-dist/js/bootstrap.js"
+            ]
           }
         }
       }

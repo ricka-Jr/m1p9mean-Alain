@@ -7,7 +7,7 @@ import { initializeApp } from "firebase/app" ;
 import { Router, NavigationEnd } from '@angular/router';
 import {filter} from 'rxjs/operators';
 
-initializeApp(environment.firebaseConfig);
+// initializeApp(environment.firebaseConfig);
 
 @Component({
   selector: 'app-root',
@@ -26,9 +26,9 @@ export class AppComponent implements OnInit{
     });
   }
   ngOnInit(): void {
-    this.Find();
-    this.requestPermission(); 
-    this.listen(); 
+    // this.Find();
+    // this.requestPermission(); 
+    // this.listen(); 
   }
 
   
@@ -63,25 +63,25 @@ export class AppComponent implements OnInit{
   }
 
   
-  requestPermission() { 
-    const messaging = getMessaging(); 
-    getToken(messaging, 
-     { vapidKey: environment.firebaseConfig.vapidKey}).then( 
-       (currentToken) => { 
-         if (currentToken) { 
-           console.log("Hurraaa!!! nous avons le jeton...."); 
-           console .log(currentToken); 
-         } else { 
-           console.log('Aucun jeton denregistrement disponible. Demander lautorisation den générer un.'); 
-         }
-     }).catch((err) => { 
-        console.log('Une erreur sest produite lors de la récupération du jeton. ', err); 
-    }); 
-  } 
-  listen() { 
-    const messagerie = getMessaging(); 
-    onMessage(messagerie, (param) => { 
-      console.log('Message reçu. ', param); 
-    }); 
-  }
+  // requestPermission() { 
+  //   const messaging = getMessaging(); 
+  //   getToken(messaging, 
+  //    { vapidKey: environment.firebaseConfig.vapidKey}).then( 
+  //      (currentToken) => { 
+  //        if (currentToken) { 
+  //          console.log("Hurraaa!!! nous avons le jeton...."); 
+  //          console .log(currentToken); 
+  //        } else { 
+  //          console.log('Aucun jeton denregistrement disponible. Demander lautorisation den générer un.'); 
+  //        }
+  //    }).catch((err) => { 
+  //       console.log('Une erreur sest produite lors de la récupération du jeton. ', err); 
+  //   }); 
+  // } 
+  // listen() { 
+  //   const messagerie = getMessaging(); 
+  //   onMessage(messagerie, (param) => { 
+  //     console.log('Message reçu. ', param); 
+  //   }); 
+  // }
 }

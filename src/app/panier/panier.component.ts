@@ -35,6 +35,8 @@ export class PanierComponent implements OnInit {
   deletePanier(initial : number){
     var plat : any[] = this.getPanier()
     var key = plat[initial]
+    console.log('initial: '+initial)
+    console.log('plat: '+plat[initial]._id)
     localStorage.removeItem(key._id)
   }
 // get total prix plat commander
@@ -72,7 +74,6 @@ export class PanierComponent implements OnInit {
         let commande = this.getCommande(this.client, idKaly, i)
         this.ws.commandeCLient(commande).subscribe({
           next: data => {
-            console.log(data)
             this.deletePanier(i)
             visible(i)
           },
