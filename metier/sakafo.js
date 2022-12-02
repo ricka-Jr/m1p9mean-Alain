@@ -1,7 +1,7 @@
-var sakafo = require('../model/SakafoModel')
+let sakafo = require('../model/SakafoModel')
 
-function findByIdRestaurant(req, res){
-    sakafo.find({"restaurants._id" : req.params.id}).exec((err, data) => {
+function findByIdRestaurant(req, res) {
+    sakafo.find({ "restaurants._id": req.params.id }).exec((err, data) => {
         if (err) {
             console.log(err);
             res.status(400).send({ message: 'ERREUR SERVEUR' });
@@ -11,4 +11,4 @@ function findByIdRestaurant(req, res){
     });
 }
 
-module.exports = {findByIdRestaurant : findByIdRestaurant}
+module.exports = { findByIdRestaurant: findByIdRestaurant }

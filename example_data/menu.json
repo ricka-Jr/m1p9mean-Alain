@@ -1,0 +1,26 @@
+[
+    {
+        "plat": "Plats",
+        "profil": "plat.png"
+    },
+    {
+        "plat": "Min-Sao",
+        "profil": "minsao.png"
+    },
+    {
+        "plat": "Soupe",
+        "profil": "soupe.png"
+    },
+    {
+        "plat": "Pizza",
+        "profil": "pizza.png"
+    },
+    {
+        "plat": "Tacos",
+        "profil": "tacos.png"
+    },
+    {
+        "plat": "Boisson",
+        "profil": "boisson.png"
+    }
+]
