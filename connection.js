@@ -19,10 +19,10 @@ function connectMongoose() {
 }
 
 function genererToken() {
-    var result = '';
-    var motCLe = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    var motCrypte = motCLe.length;
-    for (var i = 0; i < 43; i++)
+    let result = '';
+    let motCLe = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let motCrypte = motCLe.length;
+    for (let i = 0; i < 43; i++)
         result += motCLe.charAt(Math.floor(Math.random() * motCrypte));
     return result;
 }

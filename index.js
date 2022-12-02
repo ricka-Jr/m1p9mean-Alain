@@ -3,19 +3,19 @@ const bodyParser = require('body-parser')
 const app = express();
 const cors = require('cors');
 
-var sakafo = require('./metier/sakafo') // metier sakafo
-var restaurant = require('./metier/restaurant') // metier restaurant
-var connex = require('./connection'); // connection base
-var commande = require('./metier/commande'); // commande client
-var client = require('./metier/client'); // metier client
-var ClientModel = require('./model/ClientModel') // model client
+let sakafo = require('./metier/sakafo') // metier sakafo
+let restaurant = require('./metier/restaurant') // metier restaurant
+let connex = require('./connection'); // connection base
+let commande = require('./metier/commande'); // commande client
+let client = require('./metier/client'); // metier client
+let ClientModel = require('./model/ClientModel') // model client
 const path = require('path');
 
 app.use(cors());
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-console.log('connecter : '+connex.conMongoose())
+console.log('connecter : ' + connex.conMongoose())
 
 app.get('/findClient/:mail', (req, res) => {
     ClientModel.find({}).exec(function (err, data) {
@@ -24,14 +24,14 @@ app.get('/findClient/:mail', (req, res) => {
             res.status(400).send({ error: 'Failed insert' });
         }
         if (!data) res.send(403, { error: 'Authentication Failed' });
-        for(let i=0; i<data.length; i++){
-            if(req.params.mail == data[i].email){ 
+        for (let i = 0; i < data.length; i++) {
+            if (req.params.mail == data[i].email) {
                 console.log(data[i].email)
                 res.status(200).send(data);
             }
             else console.log('mail not found')
         }
-        
+
     });
 })
 
@@ -51,21 +51,34 @@ app.get('/getClient/:id', client.findById) // find by idclient
 
 app.get('/token/:mail/:mdp', (req, res) => {
     // verification mail et mdp
-    var token = ''
-    if(req.params.mail == 'client@ekaly.mg' && req.params.mdp == 'client1234'){
+    let token = ''
+    if (req.params.mail == 'client@ekaly.mg' && req.params.mdp == 'client1234') {
         token = connex.token()
-        res.status(200).send({token})
+        res.status(200).send({ token })
     }
-    else{
+    else {
         res.status(400).send("user not found")
     }
     // insert token
     // console.log(req.headers.token)
-    
+
 })
 
+// ========================
+// Controllers
+// ========================
+// **** Menu ****
+const menuRouter = express.Router();
+const menuController = require('./controller/MenuController');
+app.use('/menu', menuRouter);
+
+// ========================
+// Routes
+// ========================
+// **** Menu ****
+menuRouter.get('/find-all', menuController.findMenu);
 
 const port = process.env.PORT || 3000;
-app.listen(port, function (){
-    console.log(`Listening on port ${port}`); 
+app.listen(port, function () {
+    console.log(`Listening on port ${port}`);
 })

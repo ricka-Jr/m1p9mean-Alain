@@ -1,8 +1,8 @@
 const express = require('express')
-var ModelRestaurant = require('../model/RestaurantModel')
+let ModelRestaurant = require('../model/RestaurantModel')
 const connex = require('../connection');
 
-function findAllRestaurant(req, res){
+function findAllRestaurant(req, res) {
     ModelRestaurant.find({}).exec((err, data) => {
         if (err) {
             console.log(err);
@@ -13,4 +13,4 @@ function findAllRestaurant(req, res){
     });
 }
 
-module.exports = {findAll : findAllRestaurant}
+module.exports = { findAll: findAllRestaurant }

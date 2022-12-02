@@ -1,0 +1,156 @@
+[
+    {
+        "designation": "Vary & Omby ritra",
+        "quantite": 20,
+        "prix": 5000,
+        "profil": "vary_omby.png",
+        "menu": {
+            "_id": "6388821c93cb23203483845b",
+            "plat": "Plats",
+            "profil": "plat.png"
+        }
+    },
+    {
+        "designation": "Vary & Akoho Gasy",
+        "quantite": 20,
+        "prix": 7000,
+        "profil": "vary_akoho.png",
+        "menu": {
+            "_id": "6388821c93cb23203483845b",
+            "plat": "Plats",
+            "profil": "plat.png"
+        }
+    },
+    {
+        "designation": "Min-Sao Poulet",
+        "quantite": 10,
+        "prix": 12000,
+        "profil": "min_poulet.png",
+        "menu": {
+            "_id": "6388821c93cb23203483845c",
+            "plat": "Min-Sao",
+            "profil": "minsao.png"
+        }
+    },
+    {
+        "designation": "Min-Sao Fruit de Mer",
+        "quantite": 15,
+        "prix": 18000,
+        "profil": "min_fr.png",
+        "menu": {
+            "_id": "6388821c93cb23203483845c",
+            "plat": "Min-Sao",
+            "profil": "minsao.png"
+        }
+    },
+    {
+        "designation": "Min-Sao GasyFoods",
+        "quantite": 20,
+        "prix": 15000,
+        "profil": "min_gf.png",
+        "menu": {
+            "_id": "6388821c93cb23203483845c",
+            "plat": "Min-Sao",
+            "profil": "minsao.png"
+        }
+    },
+    {
+        "designation": "Soupe Tongotr'Omby",
+        "quantite": 10,
+        "prix": 12000,
+        "profil": "sp_omby.png",
+        "menu": {
+            "_id": "6388821c93cb23203483845d",
+            "plat": "Soupe",
+            "profil": "soupe.png"
+        }
+    },
+    {
+        "designation": "Soupe GasyFoods",
+        "quantite": 15,
+        "prix": 15000,
+        "profil": "sp_gf.png",
+        "menu": {
+            "_id": "6388821c93cb23203483845d",
+            "plat": "Soupe",
+            "profil": "soupe.png"
+        }
+    },
+    {
+        "designation": "Pizza Poulet",
+        "quantite": 30,
+        "prix": 15000,
+        "profil": "pz_poulet.png",
+        "menu": {
+            "_id": "6388821c93cb23203483845e",
+            "plat": "Pizza",
+            "profil": "pizza.png"
+        }
+    },
+    {
+        "designation": "Pizza 4 Fromages",
+        "quantite": 30,
+        "prix": 13000,
+        "profil": "pz_fromage.png",
+        "menu": {
+            "_id": "6388821c93cb23203483845e",
+            "plat": "Pizza",
+            "profil": "pizza.png"
+        }
+    },
+    {
+        "designation": "Pizza GasyFoods",
+        "quantite": 30,
+        "prix": 20000,
+        "profil": "pz_gf.png",
+        "menu": {
+            "_id": "6388821c93cb23203483845e",
+            "plat": "Pizza",
+            "profil": "pizza.png"
+        }
+    },
+    {
+        "designation": "Tacos GasyFoods",
+        "quantite": 30,
+        "prix": 13000,
+        "profil": "tacos_gf.png",
+        "menu": {
+            "_id": "6388821c93cb23203483845f",
+            "plat": "Tacos",
+            "profil": "tacos.png"
+        }
+    },
+    {
+        "designation": "Jus Star-PM",
+        "quantite": 50,
+        "prix": 1000,
+        "profil": "star_pm.png",
+        "menu": {
+            "_id": "6388821c93cb232034838460",
+            "plat": "Boisson",
+            "profil": "boisson.png"
+        }
+    },
+    {
+        "designation": "Jus Star-GM",
+        "quantite": 50,
+        "prix": 3000,
+        "profil": "star_gm.png",
+        "menu": {
+            "_id": "6388821c93cb232034838460",
+            "plat": "Boisson",
+            "profil": "boisson.png"
+        }
+    },
+    {
+        "designation": "Jus Naturel",
+        "quantite": 50,
+        "prix": 5000,
+        "profil": "jus_naturel.png",
+        "menu": {
+            "_id": "6388821c93cb232034838460",
+            "plat": "Boisson",
+            "profil": "boisson.png"
+        }
+    }
+]
