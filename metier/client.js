@@ -6,6 +6,8 @@ let token = require('./token')
 const crypto = require('crypto');
 
 
+
+
 function hexTobinary(hex) {
     return ("00000000" + (parseInt(hex, 16)).toString(2)).substring(-8);
 }
@@ -32,7 +34,7 @@ function insertClient(req, res) {
     let client = new ClientModel(req.body);
     try {
         if ((!isEmpty(req.body.nom) && !isEmpty(req.body.addresse) && !isEmpty(req.body.email) && !isEmpty(req.body.password))) {
-            client.password = encrypt(req.body.password)
+            client.setPassword(req.body.password)
             client.save()
             let tokenGenere = connex.token()
             console.log(client)
@@ -53,11 +55,28 @@ const arrayToObject = (data) => {
         return client
     }, {})
 }
+
+function login(req, res){
+    ClientModel.findOne({ email : req.body.email}).exec((err, user) => {
+        if (user.validPassword(req.body.password)) {
+            let tokenGenere = connex.token()
+            token.save(tokenGenere, user)
+            res.status(200).send({ token: tokenGenere, message: 'SUCCESS LOGIN', clients: user });
+        }
+        else if (isEmpty(user) || user === null) {
+            res.status(403).send({ message: 'UTILISATEUR INEXISTANT' });
+        }
+        else {
+            res.status(400).send({ message : 'MOT DE PASSE INCORRECT'}); 
+        }
+    })
+}
 function loginClient(req, res) {
-    console.log(req.body)
-    ClientModel.find({ email: req.body.email, password: req.body.password }).exec((err, data) => {
+    let hashPassword = encrypt(req.body.password)
+    console.log(hashPassword)
+    ClientModel.find({ email: req.body.email, password: hashPassword }).exec((err, data) => {
         if (err) res.status(400).send({ message: 'USER NOT FOUND' });
-        if (isEmpty(data)) res.status(403).send({ message: 'AUTHENTICATION FAILED' });
+        if (isEmpty(data)) res.status(403).send({ message: 'ERROR CREDENTIAL' });
         else {
             let tokenGenere = connex.token()
             let client = arrayToObject(data)
@@ -92,4 +111,4 @@ function logoutClient(req, res) {
 
 
 // exports.loginClient = loginClient
-module.exports = { loginClient: loginClient, insertClient: insertClient, isEmpty: isEmpty, logoutClient: logoutClient, findById: findById }
+module.exports = { loginClient: login, insertClient: insertClient, isEmpty: isEmpty, logoutClient: logoutClient, findById: findById }
