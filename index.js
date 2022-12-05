@@ -59,9 +59,6 @@ app.get('/token/:mail/:mdp', (req, res) => {
     else {
         res.status(400).send("user not found")
     }
-    // insert token
-    // console.log(req.headers.token)
-
 })
 
 // ========================
@@ -76,7 +73,21 @@ app.use('/menu', menuRouter);
 // Routes
 // ========================
 // **** Menu ****
-menuRouter.get('/find-all', menuController.findMenu);
+menuRouter.get('/find-all-menu', menuController.findMenu);
+
+// ========================
+// Controllers
+// ========================
+// **** Plat ****
+const platRouter = express.Router();
+const platController = require('./controller/PlatController');
+app.use('/plats', platRouter);
+
+// ========================
+// Routes
+// ========================
+// **** Menu ****
+platRouter.get('/find-all-plat', platController.findPlat);
 
 const port = process.env.PORT || 3000;
 app.listen(port, function () {
