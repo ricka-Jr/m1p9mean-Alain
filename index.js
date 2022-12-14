@@ -87,7 +87,7 @@ app.use('/plats', platRouter);
 // Routes
 // ========================
 // **** Menu ****
-platRouter.get('/find-all-plat', platController.findPlat);
+platRouter.get('/find-all-plat/:id', platController.findPlat);
 
 const port = process.env.PORT || 3000;
 app.listen(port, function () {
