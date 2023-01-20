@@ -6,7 +6,7 @@ const ServiceExtension = require('../service/ServiceExtension');
 class PlatMetier extends ServiceExtension {
     findPlat() {
         try {
-            plat.find({'menu._id':this.req.params.id})
+            plat.find({ 'menu._id': this.req.params.id })
                 .then(
                     (data) => {
                         this.res.status(200).json({ 'status': 'OK', 'data': { 'plats': data } });
