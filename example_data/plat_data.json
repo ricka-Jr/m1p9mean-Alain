@@ -55,10 +55,32 @@
         }
     },
     {
+        "designation": "Nouille Boeuf",
+        "quantite": 20,
+        "prix": 13000,
+        "profil": "min_boeuf.png",
+        "menu": {
+            "_id": "6388821c93cb23203483845c",
+            "plat": "Min-Sao",
+            "profil": "minsao.png"
+        }
+    },
+    {
         "designation": "Soupe Tongotr'Omby",
         "quantite": 10,
         "prix": 12000,
         "profil": "sp_omby.png",
+        "menu": {
+            "_id": "6388821c93cb23203483845d",
+            "plat": "Soupe",
+            "profil": "soupe.png"
+        }
+    },
+    {
+        "designation": "Ramen",
+        "quantite": 10,
+        "prix": 16000,
+        "profil": "ramen.png",
         "menu": {
             "_id": "6388821c93cb23203483845d",
             "plat": "Soupe",
@@ -81,6 +103,17 @@
         "quantite": 30,
         "prix": 15000,
         "profil": "pz_poulet.png",
+        "menu": {
+            "_id": "6388821c93cb23203483845e",
+            "plat": "Pizza",
+            "profil": "pizza.png"
+        }
+    },
+    {
+        "designation": "Pizza Végan",
+        "quantite": 30,
+        "prix": 15000,
+        "profil": "pz_vegan.png",
         "menu": {
             "_id": "6388821c93cb23203483845e",
             "plat": "Pizza",
@@ -114,6 +147,17 @@
         "quantite": 30,
         "prix": 13000,
         "profil": "tacos_gf.png",
+        "menu": {
+            "_id": "6388821c93cb23203483845f",
+            "plat": "Tacos",
+            "profil": "tacos.png"
+        }
+    },
+    {
+        "designation": "Tacos Mexicain",
+        "quantite": 30,
+        "prix": 14000,
+        "profil": "tacos_mexicain.png",
         "menu": {
             "_id": "6388821c93cb23203483845f",
             "plat": "Tacos",
